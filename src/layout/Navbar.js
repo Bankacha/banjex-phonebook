@@ -7,7 +7,7 @@ const Nav = (props) => {
         <Navbar bg="dark">
             <Navbar.Brand className="text-light">Banjex Phonebook</Navbar.Brand>
             <Link className="mr-3" to='/'>Home</Link>
-            <Link className="mr-3" to='/contacts'>Contacts</Link>
+            <Link className="mr-3" to='/table'>Contacts</Link>
         </Navbar>
     )
 }
