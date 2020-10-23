@@ -11,6 +11,7 @@ import Contacts from './components/views/Contacts';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CreateNew from './components/views/CreateNewContacts';
 
 
 function App() {
@@ -23,8 +24,12 @@ function App() {
             <Contacts />
           </Route>
 
-          <Route path="/">
+          <Route path="/" exact={true}>
             <Home />
+          </Route>
+
+          <Route path="/CreateNewContacts">
+            <CreateNew />
           </Route>
 
         </Switch>

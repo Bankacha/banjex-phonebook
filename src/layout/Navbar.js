@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Navbar } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
@@ -8,6 +8,7 @@ const Nav = (props) => {
             <Navbar.Brand className="text-light">Banjex Phonebook</Navbar.Brand>
             <Link className="mr-3" to='/'>Home</Link>
             <Link className="mr-3" to='/contacts'>Contacts</Link>
+            <Link className="mr-3" to='/CreateNewContacts'>Add New Contact</Link>
         </Navbar>
     )
 }
