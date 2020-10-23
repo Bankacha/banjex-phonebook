@@ -1,48 +1,29 @@
 import React from 'react';
-import { Col, Row, Table } from 'react-bootstrap';
+import { Link, Route } from 'react-router-dom';
+import CreateNewContact from '../contacts/CreateNewContacts';
+import ContactsTable from '../contacts/ContactsTable';
+import { Col, Row } from 'react-bootstrap';
 
 export default class Contacts extends React.Component {
 
-    
+    state = {
+        contact: []
+    }
 
     render() {
         return (
             <div>
-                <Row>
+                <Row className='justify-content-between mt-5'>
                     <Col>
-                        <h1>Contacts Page</h1>
+                        <h1>Contacts</h1>
                     </Col>
                 </Row>
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </Table>
+                <hr></hr>
+
+                <Route path={`${this.props.match.path}`} exact={true} component={() => <ContactsTable></ContactsTable>} />
+                <Route path={`${this.props.match.path}/create`} component={() => <CreateNewContact></CreateNewContact>} />
             </div>
+
         )
     }
 }

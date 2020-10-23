@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 
-export default class CreateNew extends React.Component {
+export default class CreateNewContact extends React.Component {
 
     state = {
         contactName: '',
