@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/stveljko012/banjex-phonebook/precache-manifest.3fdf3f30d84c766b5148752486518956.js"
+  "/stveljko012/banjex-phonebook/precache-manifest.e05cc81f7cb2fad6a120a841c880b3e5.js"
 );
 
 self.addEventListener('message', (event) => {

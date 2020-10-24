@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6e55ec73c42c4a26110c37c1a16c7192",
+    "revision": "8d4378e1dd63d35388a050d28c4f6114",
     "url": "/stveljko012/banjex-phonebook/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stveljko012/banjex-phonebook/static/css/2.2a86faee.chunk.css"
   },
   {
-    "revision": "d35310d018b4a8b62597",
+    "revision": "2d617b34cb2e4d637cec",
     "url": "/stveljko012/banjex-phonebook/static/css/main.27fd15f6.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stveljko012/banjex-phonebook/static/js/2.76286cf9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d35310d018b4a8b62597",
-    "url": "/stveljko012/banjex-phonebook/static/js/main.72ceb28d.chunk.js"
+    "revision": "2d617b34cb2e4d637cec",
+    "url": "/stveljko012/banjex-phonebook/static/js/main.697af476.chunk.js"
   },
   {
     "revision": "54d2525985f47e57fcae",

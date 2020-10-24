@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/stveljko012/banjex-phonebook/static/css/main.27fd15f6.chunk.css",
-    "main.js": "/stveljko012/banjex-phonebook/static/js/main.72ceb28d.chunk.js",
-    "main.js.map": "/stveljko012/banjex-phonebook/static/js/main.72ceb28d.chunk.js.map",
+    "main.js": "/stveljko012/banjex-phonebook/static/js/main.697af476.chunk.js",
+    "main.js.map": "/stveljko012/banjex-phonebook/static/js/main.697af476.chunk.js.map",
     "runtime-main.js": "/stveljko012/banjex-phonebook/static/js/runtime-main.2c480b6e.js",
     "runtime-main.js.map": "/stveljko012/banjex-phonebook/static/js/runtime-main.2c480b6e.js.map",
     "static/css/2.2a86faee.chunk.css": "/stveljko012/banjex-phonebook/static/css/2.2a86faee.chunk.css",
     "static/js/2.76286cf9.chunk.js": "/stveljko012/banjex-phonebook/static/js/2.76286cf9.chunk.js",
     "static/js/2.76286cf9.chunk.js.map": "/stveljko012/banjex-phonebook/static/js/2.76286cf9.chunk.js.map",
     "index.html": "/stveljko012/banjex-phonebook/index.html",
-    "precache-manifest.3fdf3f30d84c766b5148752486518956.js": "/stveljko012/banjex-phonebook/precache-manifest.3fdf3f30d84c766b5148752486518956.js",
+    "precache-manifest.e05cc81f7cb2fad6a120a841c880b3e5.js": "/stveljko012/banjex-phonebook/precache-manifest.e05cc81f7cb2fad6a120a841c880b3e5.js",
     "service-worker.js": "/stveljko012/banjex-phonebook/service-worker.js",
     "static/css/2.2a86faee.chunk.css.map": "/stveljko012/banjex-phonebook/static/css/2.2a86faee.chunk.css.map",
     "static/css/main.27fd15f6.chunk.css.map": "/stveljko012/banjex-phonebook/static/css/main.27fd15f6.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.2a86faee.chunk.css",
     "static/js/2.76286cf9.chunk.js",
     "static/css/main.27fd15f6.chunk.css",
-    "static/js/main.72ceb28d.chunk.js"
+    "static/js/main.697af476.chunk.js"
   ]
 }
