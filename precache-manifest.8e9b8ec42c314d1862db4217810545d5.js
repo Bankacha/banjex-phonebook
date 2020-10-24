@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8d4378e1dd63d35388a050d28c4f6114",
+    "revision": "06e1ff4377365456e255bf79aeb9c048",
     "url": "/stveljko012/banjex-phonebook/index.html"
   },
   {
