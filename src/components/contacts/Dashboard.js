@@ -2,7 +2,6 @@ import React from 'react'
 import { Table } from 'react-bootstrap'
 
 
-
 export default class Dashboard extends React.Component {
 
 
@@ -21,23 +20,26 @@ export default class Dashboard extends React.Component {
 
     render() {
         return (
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>count contacts</th>
-                        <th>male</th>
-                        <th>female</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{this.props.contactList.length}</td>
-                        <td>{this.countGenderContacts('male')}</td>
-                        <td>{this.countGenderContacts('female')}</td>
-                    </tr>
+            <div>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>count contacts</th>
+                            <th>male</th>
+                            <th>female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{this.props.contactList.length}</td>
+                            <td>{this.countGenderContacts('male')}</td>
+                            <td>{this.countGenderContacts('female')}</td>
+                        </tr>
 
-                </tbody>
-            </Table>
+                    </tbody>
+                </Table>
+
+            </div>
         )
     }
 
