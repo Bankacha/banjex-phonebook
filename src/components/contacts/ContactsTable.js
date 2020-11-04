@@ -23,6 +23,7 @@ export default class ContactsTable extends React.Component {
             gender: contact.gender,
             id: contact.id
         })
+        this.scrollTop()
     }
 
     handleNameChange = (value) => {
@@ -59,6 +60,10 @@ export default class ContactsTable extends React.Component {
     resolveGender = (gender) => {
         return ['male', 'female'].includes(gender) ? gender : 'edit gender'
     }
+    
+    scrollTop = () =>{
+        window.scrollTo({top: 0, behavior: 'smooth'});
+     };
 
     render() {
         return (
