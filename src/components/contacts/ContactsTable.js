@@ -1,8 +1,8 @@
 import React from 'react';
-import { Row, Col, Table, Button } from 'react-bootstrap';
+import { Row, Col, Table, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import './contactTable.css'
 
 export default class ContactsTable extends React.Component {
 
@@ -43,11 +43,21 @@ export default class ContactsTable extends React.Component {
     }
 
     applyEdited = (obj) => {
-        axios.put(`https://5f99583350d84900163b8807.mockapi.io/banjex/contacts/${obj.id}`,{
+        axios.put(`https://5f99583350d84900163b8807.mockapi.io/banjex/contacts/${obj.id}`, {
             name: obj.inputName,
             number: obj.inputNumber,
             gender: obj.gender
-        }).then(response=>console.log(this.props.update()))
+        }).then(response => console.log(this.props.update()))
+    }
+
+    handleGenderEdit = (e) => {
+        this.setState({
+            gender: e.target.value
+        })
+    }
+
+    resolveGender = (gender) => {
+        return ['male', 'female'].includes(gender) ? gender : 'edit gender'
     }
 
     render() {
@@ -55,28 +65,41 @@ export default class ContactsTable extends React.Component {
             <div>
                 <Row className='mb-5'>
                     <Col md={12}>
-                        <Link to='/create'><button className='btn btn-info w-100'>New</button></Link>
+                        <Link to='/create'><button className='btn btn-info w-100'>Create New</button></Link>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={1} className="margin-right:10px">
-                        <input value={this.state.id} readOnly></input>
+                    <Col md={2}>
+                        <Form.Group>
+                            <Form.Label>ID</Form.Label>
+                            <Form.Control value={this.state.id} type="number" readOnly placeholder="ID" />
+                        </Form.Group>
                     </Col>
-                    <Col md={4} >
-                        <input onChange={e => this.handleNameChange(e.target.value)} value={this.state.inputName}></input>
+                    <Col md={3} >
+                        <Form.Group >
+                            <Form.Label>Contact Name</Form.Label>
+                            <Form.Control onChange={e => this.handleNameChange(e.target.value)} value={this.state.inputName} placeholder="Contact Name" />
+                        </Form.Group>
                     </Col>
-                    <Col md={4}>
-                        <input onChange={e => this.handleNumberChange(e.target.value)} value={this.state.inputNumber}></input>
+                    <Col md={3}>
+                        <Form.Group>
+                            <Form.Label>Contact Number</Form.Label>
+                            <Form.Control onChange={e => this.handleNumberChange(e.target.value)} value={this.state.inputNumber} placeholder="Contact Number" />
+                        </Form.Group>
                     </Col>
                     <Col md={2}>
-                        <select>
-                            <option value={null}>choose gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
+                        <Form.Group controlId="exampleForm.SelectCustomSizeSm">
+                            <Form.Label>Select gender</Form.Label>
+                            <Form.Control onChange={(e) => this.handleGenderEdit(e)} as="select" size="md" custom>
+                                <option value={null}>{this.state.gender}</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </Form.Control>
+                        </Form.Group>
                     </Col>
-                    <Col md={1}>
-                        <Button type='submit' onClick={() => this.applyEdited(this.state)}>apply</Button>
+                    <Col md={2}>
+                        <Button className="w-100 button" type='submit' onClick={() => this.applyEdited(this.state)} variant="outline-primary">apply changes</Button>
+                        {/* <Button type='submit' onClick={() => this.applyEdited(this.state)}>apply</Button> */}
                     </Col>
                 </Row>
                 <br></br>
@@ -100,7 +123,7 @@ export default class ContactsTable extends React.Component {
                                         <td>{i + 1}</td>
                                         <td>{contact.name}</td>
                                         <td>{contact.number}</td>
-                                        <td>{contact.gender}</td>
+                                        <td>{this.resolveGender(contact.gender)}</td>
                                         <td><Button onClick={() => this.props.delete(contact.id)}>Delete</Button></td>
                                         <td><Button type="button" onClick={() => this.passContact(contact)}>Edit</Button></td>
                                     </tr>

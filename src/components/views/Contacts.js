@@ -46,14 +46,13 @@ export default class Contacts extends React.Component {
         //         localStorage.setItem(ContactsStorageKey, JSON.stringify(this.state.contacts));
         //     })
         // }
-
+console.log(obj)
         axios.post('https://5f99583350d84900163b8807.mockapi.io/banjex/contacts', {
             name: obj.name,
-            number: obj.number,
+            number: obj.number,     
             gender: obj.gender
         }).then(response => response)
 
-        console.log(this.pushContact())
 
     }
 
@@ -98,7 +97,7 @@ export default class Contacts extends React.Component {
 
                 <Route path={`${this.props.match.path}`} exact={true} component={() => <Dashboard contactList={this.state.contacts}></Dashboard>} />
                 <Route path={`${this.props.match.path}table`} exact={true} component={() => <ContactsTable update={this.onUpdate} change={this.change} delete={this.deleteContact} contactList={this.state.contacts}></ContactsTable>} />
-                <Route path={`${this.props.match.path}create`} exact={true} component={() => <CreateNewContact pushContact={this.pushContact}></CreateNewContact>} />
+                <Route path={`${this.props.match.path}create`} exact={true} component={() => <CreateNewContact request={this.contactsRequest} pushContact={this.pushContact} contactList={this.state.contacts}></CreateNewContact>} />
             </div>
 
         )

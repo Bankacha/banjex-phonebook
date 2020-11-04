@@ -1,12 +1,12 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-
+import axios from 'axios';
 
 export default class CreateNewContact extends React.Component {
 
     state = {
         contactName: '',
-        contactNumber: 0,
+        contactNumber: '',
         gender: ''
     }
 
@@ -15,6 +15,7 @@ export default class CreateNewContact extends React.Component {
         newState[key] = input
 
         this.setState(newState)
+
     }
 
     handleClick = () => {
@@ -23,14 +24,39 @@ export default class CreateNewContact extends React.Component {
             number: this.state.contactNumber,
             gender: this.state.gender
         }
-        this.props.pushContact(contact);
 
+        axios.get('https://5f99583350d84900163b8807.mockapi.io/banjex/contacts').then(response => {
+            let duplicates = response.data.filter(n => {
+                if (n.name === this.state.contactName || n.number === this.state.contactNumber) {
+                    return true
+                }
+                return false
+            })
+            console.log(duplicates)
+            console.log(response.data)
+            if (duplicates.length === 0) {
+                this.props.pushContact(contact);
+                this.setState({
+                    contactName: '',
+                    contactNumber: '',
+                    gender: ''
+                })
+                alert(`contact ${contact.name} created successfully`)
+            } else {
+                alert(`contact already exist`)
+            }
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        return false
     }
 
     render() {
         return (
             <div>
-                <Form>
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label >Name</Form.Label>
                         <Form.Control value={this.state.contactName} onChange={(event) => this.handleChange(event.target.value, 'contactName')} type="emaiContact Namel" placeholder="Enter name" />
@@ -41,7 +67,7 @@ export default class CreateNewContact extends React.Component {
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label >Phone</Form.Label>
-                        <Form.Control onChange={(event) => this.handleChange(event.target.value, 'contactNumber')} type="number" placeholder="Telephone" />
+                        <Form.Control value={this.state.contactNumber} onChange={(event) => this.handleChange(event.target.value, 'contactNumber')} type="phone" placeholder="Telephone" />
                     </Form.Group>
                     <Form.Group controlId="exampleForm.SelectCustom">
                         <Form.Label>Custom select</Form.Label>
@@ -51,7 +77,7 @@ export default class CreateNewContact extends React.Component {
                             <option value='female'>Female</option>
                         </Form.Control>
                     </Form.Group>
-                    <Button onClick={this.handleClick} variant="primary" type="submit">
+                    <Button onClick={this.handleClick} variant="primary" type="button">
                         Submit
                     </Button>
                 </Form>
