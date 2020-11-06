@@ -60,10 +60,10 @@ export default class ContactsTable extends React.Component {
     resolveGender = (gender) => {
         return ['male', 'female'].includes(gender) ? gender : 'edit gender'
     }
-    
-    scrollTop = () =>{
-        window.scrollTo({top: 0, behavior: 'smooth'});
-     };
+
+    scrollTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     render() {
         return (
@@ -108,8 +108,19 @@ export default class ContactsTable extends React.Component {
                     </Col>
                 </Row>
                 <br></br>
+
                 <br></br>
                 <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>page No: {this.props.paginated.currentPage}</th>
+                            <th><Button onClick={this.props.previous}>previous page</Button></th>
+                            <th><Button onClick={this.props.next}>next page</Button></th>
+                        </tr>
+                    </thead>
                     <thead>
                         <tr>
                             <th>#</th>
