@@ -27,12 +27,13 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <Row className='justify-content-around'>
+                <Row className='justify-content-around mb-3'>
                     <Col xs={6} md={2}>
-                        <Image className='w-100' src="https://lh3.googleusercontent.com/proxy/amu3UWpPiAWMuUliF_vLTIK_iyfyWfUIkOhfEen9-etRni0LlhWiBV0X1jXquJhd0r9s0jmktBMuIscdzjYShyXtT2q3txcdiRv6MdQaEkzu6A1igOsmQn2DJJ8oCg60vNfgdJ94ZAf4" />
+                        <a href="./table">
+                            <Image className='w-100' src="https://www.pngrepo.com/download/229000/phone-book.png" />
+                        </a>
                     </Col>
                 </Row>
-
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -52,28 +53,32 @@ export default class Dashboard extends React.Component {
 
                     </tbody>
                 </Table>
+                {
+                    this.state.filteredContacts.length ? (
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.filteredContacts.map((c, i) => {
+                                        return (
+                                            <tr key={i}>
+                                                <td>{c.name}</td>
+                                                <td>{c.number}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
 
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.filteredContacts.map((c, i) => {
-                                return (
-                                    <tr key={i}>
-                                        <td>{c.name}</td>
-                                        <td>{c.number}</td>
-                                    </tr>
-                                )
-                            })
-                        }
+                            </tbody>
+                        </Table>
+                    ) : null
+                }
 
-                    </tbody>
-                </Table>
 
             </div>
         )

@@ -94,7 +94,7 @@ export default class ContactsTable extends React.Component {
                     </Col>
                     <Col md={2}>
                         <Form.Group controlId="exampleForm.SelectCustomSizeSm">
-                            <Form.Label>Select gender</Form.Label>
+                            <Form.Label>ender</Form.Label>
                             <Form.Control onChange={(e) => this.handleGenderEdit(e)} as="select" size="md" custom>
                                 <option value={null}>{this.state.gender}</option>
                                 <option value="male">Male</option>
@@ -109,7 +109,7 @@ export default class ContactsTable extends React.Component {
                 </Row>
                 <br></br>
                 <br></br>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>#</th>

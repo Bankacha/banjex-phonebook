@@ -38,20 +38,13 @@ export default class Contacts extends React.Component {
     }
 
     pushContact = (obj) => {
-        // if (obj) {
-        //     let contacts = [...this.state.contacts]
-        //     contacts.push(obj)
-
-        //     this.setState({ contacts: contacts }, () => {
-        //         localStorage.setItem(ContactsStorageKey, JSON.stringify(this.state.contacts));
-        //     })
-        // }
-console.log(obj)
         axios.post('https://5f99583350d84900163b8807.mockapi.io/banjex/contacts', {
             name: obj.name,
             number: obj.number,     
             gender: obj.gender
-        }).then(response => response)
+        }).then(response => {
+            this.contactsRequest();
+        })
 
 
     }
@@ -61,7 +54,9 @@ console.log(obj)
     deleteContact = (id) => {
         axios.delete(`https://5f99583350d84900163b8807.mockapi.io/banjex/contacts/${id}`).then(response => {
             this.contactsRequest()
+            alert(`contact is deleted`)
         })
+
     }
 
 
@@ -88,8 +83,9 @@ console.log(obj)
         return (
             
             <div>
+                
                 <Row className='justify-content-between mt-5'>
-                    <Col>
+                    <Col className='text-center'>
                         <h1>Contacts</h1>
                     </Col>
                 </Row>
