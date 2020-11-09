@@ -138,7 +138,7 @@ export default class Contacts extends React.Component {
         console.log(paginatedList)
 
         //  const paginatedContacts = paginatedList.contacts
-        //  console.log(paginatedContacts)
+          console.log(paginatedList)
         return (
 
             <div>
@@ -151,7 +151,7 @@ export default class Contacts extends React.Component {
                 <hr></hr>
 
                 <Route path={`${this.props.match.path}`} exact={true} component={() => <Dashboard contactList={this.state.contacts}></Dashboard>} />
-                <Route path={`${this.props.match.path}table`} exact={true} component={() => <ContactsTable previous={this.changePagePrevious} next={this.changePageNext} update={this.onUpdate} change={this.change} delete={this.deleteContact} contactList={paginatedList.contacts} paginated={paginatedList}></ContactsTable>} />
+                <Route path={`${this.props.match.path}table`} exact={true} component={() => <ContactsTable previous={this.changePagePrevious} next={this.changePageNext} update={this.onUpdate} change={this.change} delete={this.deleteContact}  contactList={paginatedList.contacts} paginated={paginatedList}></ContactsTable>} />
                 <Route path={`${this.props.match.path}create`} exact={true} component={() => <CreateNewContact request={this.contactsRequest} pushContact={this.pushContact} contactList={this.state.contacts}></CreateNewContact>} />
             </div>
 

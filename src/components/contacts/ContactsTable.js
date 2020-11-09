@@ -10,7 +10,8 @@ export default class ContactsTable extends React.Component {
         inputName: '',
         inputNumber: '',
         gender: '',
-        id: ''
+        id: '',
+        search: ''
     }
 
 
@@ -65,7 +66,15 @@ export default class ContactsTable extends React.Component {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    handleSearch = e => {
+        this.setState({
+            search: e.target.value
+        })
+        console.log(this.state.search)
+    }
+
     render() {
+        const list = this.state.search.length === 0 ? this.props.contactList : this.props.contactList.filter((contact) => contact.name.includes(this.state.search))
         return (
             <div>
                 <Row className='mb-5'>
@@ -94,7 +103,7 @@ export default class ContactsTable extends React.Component {
                     </Col>
                     <Col md={2}>
                         <Form.Group controlId="exampleForm.SelectCustomSizeSm">
-                            <Form.Label>ender</Form.Label>
+                            <Form.Label>Gender</Form.Label>
                             <Form.Control onChange={(e) => this.handleGenderEdit(e)} as="select" size="md" custom>
                                 <option value={null}>{this.state.gender}</option>
                                 <option value="male">Male</option>
@@ -114,7 +123,11 @@ export default class ContactsTable extends React.Component {
                     <thead>
                         <tr>
                             <th></th>
-                            <th></th>
+                            <th>
+                                <Form.Group >
+                                    <Form.Control onChange={e => this.handleSearch(e)} placeholder="search" />
+                                </Form.Group>
+                            </th>
                             <th></th>
                             <th>page No: {this.props.paginated.currentPage}</th>
                             <th><Button onClick={this.props.previous}>previous page</Button></th>
@@ -133,7 +146,8 @@ export default class ContactsTable extends React.Component {
                     </thead>
                     <tbody>
                         {
-                            this.props.contactList.map((contact, i) => {
+
+                            list.map((contact, i) => {
                                 return (
                                     <tr key={i}>
                                         <td>{i + 1}</td>
@@ -154,3 +168,4 @@ export default class ContactsTable extends React.Component {
     }
 }
 
+//this.state.search.toLowerCase().includes(contact.name.toLowerCase()) === true
