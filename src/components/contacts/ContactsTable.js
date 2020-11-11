@@ -74,7 +74,7 @@ export default class ContactsTable extends React.Component {
     }
 
     render() {
-        const list = this.state.search.length === 0 ? this.props.contactList : this.props.contactList.filter((contact) => contact.name.includes(this.state.search))
+        const list = this.state.search.length === 0 ? this.props.contactList : this.props.contactList.filter((contact) => contact.name.toLowerCase().includes(this.state.search.toLowerCase()))
         return (
             <div>
                 <Row className='mb-5'>
@@ -124,9 +124,7 @@ export default class ContactsTable extends React.Component {
                         <tr>
                             <th></th>
                             <th>
-                                <Form.Group >
                                     <Form.Control onChange={e => this.handleSearch(e)} placeholder="search" />
-                                </Form.Group>
                             </th>
                             <th></th>
                             <th>page No: {this.props.paginated.currentPage}</th>
